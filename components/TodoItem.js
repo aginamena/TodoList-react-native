@@ -16,7 +16,10 @@ const styles = StyleSheet.create({
     todoItem: {
         borderWidth: 1,
         padding: 20,
-        borderColor: "black"
-        // border:1 solid black
+        borderColor: "black",
+        marginBottom: 10,
+        marginLeft: 30,
+        marginRight: 30
     }
+
 })

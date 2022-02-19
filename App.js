@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Alert, FlatList, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import AddTodo from "./components/AddTodo";
 import TodoItem from "./components/TodoItem";
-// import Navigation from "./routes/homeStack";
 
 export default function App() {
   const [data, setData] = useState([
@@ -10,11 +9,6 @@ export default function App() {
     { title: "Feed the dogs", key: 2 },
     { title: "Spend 1 hour playing guitar", key: 3 }
   ])
-  const newData = [1, 2, 3];
-  console.log(typeof newData)
-  function addNewTodo() {
-    console.log("is clicked")
-  }
   function deleteTodo(todoId) {
     setData(data.filter(todoItem => todoItem.key != todoId));
   }
@@ -25,10 +19,9 @@ export default function App() {
     }
     const todo = {
       title: name,
-      key: data.length + 1
+      key: Math.random() + 100
     }
     setData([...data, todo]);
-    // closing the keyboard
     Keyboard.dismiss();
   }
 
@@ -37,7 +30,7 @@ export default function App() {
       <View style={styles.container} nativeID="app">
         <Text style={styles.header}>All Tasks</Text>
         <AddTodo submit={name => addNewTodo(name)} />
-        <View>
+        <View style={styles.todos}>
           <FlatList
             data={data}
             renderItem={({ item }) =>
@@ -56,8 +49,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
-    height: 550,
-    position: "relative"
+    flex: 1,
   },
   header: {
     backgroundColor: "#151e3d",
@@ -67,4 +59,9 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     letterSpacing: 1.5
   },
+  todos: {
+    marginBottom: 30,
+    marginTop: 50,
+    flex: 1,
+  }
 });

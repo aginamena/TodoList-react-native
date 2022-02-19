@@ -20,14 +20,12 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 30,
         marginLeft: 10,
-        flex: 1,
         flexDirection: "row",
-        // alignItems: "space-evenly"
         justifyContent: "space-evenly"
     },
     input: {
         height: 50,
-        width: 250,
+        width: 290,
         borderWidth: 1,
         paddingLeft: 15,
         fontSize: 18
