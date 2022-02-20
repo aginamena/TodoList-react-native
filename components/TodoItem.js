@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 function TodoItem({ todo, deleteItem }) {
     return (
         <View style={styles.todoItem}>
-            <TouchableOpacity onPress={() => deleteItem(todo.key)}>
+            <TouchableOpacity style={styles.box}>
                 <Text style={{ fontSize: 18 }}>{todo.title}</Text>
+                <MaterialIcons name="delete" size={24} color="black" onPress={() => deleteItem(todo.key)} />
             </TouchableOpacity>
         </View>
     )
@@ -20,6 +22,10 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginLeft: 30,
         marginRight: 30
+    },
+    box: {
+        flexDirection: "row",
+        justifyContent: "space-between",
     }
 
 })
